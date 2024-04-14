@@ -1,10 +1,21 @@
 const express = require('express')
 const app = express()
-// Essa é a forma de implementar este endpoint
+
+let data = {
+    'integrantes':[
+        {'nome':'pedro henrique renner'},
+        {'nome':'lucas mello'},
+        {'nome':'nicolas santos'}
+    ]
+}
 app.get('/', (req, res) => {
-    res.sendFile('views/index.html', { root: __dirname })
+    res.sendFile('views/index.html', { root: aplicacao-devops })
     })
 
-app.listen(3000, () => {
+app.get('/integrantes', (req, res) => {
+    res.json(data)
+})
+
+app.listen(3001, () => {
     console.log("funfando")
 });
